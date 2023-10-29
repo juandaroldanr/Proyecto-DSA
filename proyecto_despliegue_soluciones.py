@@ -77,4 +77,19 @@ plt.show()
 grouped = df.groupby('NObeyesdad').describe().select_dtypes(include='number')
 grouped
 
+# Análisis descriptivo
+categorical_df = df[categorical_variables]
+print(categorical_df.describe())
 
+for var in categorical_variables:
+    frequency = df[var].value_counts()
+    print(f"Frecuencia de {var}:")
+    print(frequency)
+
+# Gráficos
+for column in categorical_variables:
+    plt.figure(figsize=(8, 6))
+    sns.countplot(data=categorical_df, x=column, order=categorical_df[column].value_counts().index)
+    plt.title(f'Distribución de {column}')
+    plt.xticks(rotation=45)
+    plt.show()

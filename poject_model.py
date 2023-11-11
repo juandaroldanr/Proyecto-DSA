@@ -9,7 +9,6 @@ Created on Fri Nov 10
 # Importe el conjunto de datos de diabetes y divídalo en entrenamiento y prueba usando scikit-learn
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, roc_curve, auc, confusion_matrix
@@ -29,8 +28,6 @@ df = df.drop(columns=['Gender', 'Age', 'Height', 'Weight', 'family_history_with_
 #Se separa la acoluma a predecir en el modelo de machine learning y también se vuelve binaria la variable de respuesta
 y = df["NObeyesdad"]
 df = df.drop(columns=['NObeyesdad'])
-#y = np.where((y == 'Normal_Weight') | (y == 'Insufficient_Weight'), 0, 1)
-
 
 #Conversión de variables categóricas binarias a unos y ceros
 
@@ -51,7 +48,6 @@ for col in df[intcols]:
     df[col] = MinMaxScaler().fit_transform(df[[col]])
 
 
-
 # Se dividen los datos en conjuntos de entrenamiento y prueba
 X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random_state=42)
 
@@ -59,7 +55,7 @@ X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.2, random
 #Importe MLFlow para registrar los experimentos, el regresor de bosques aleatorios y la métrica de error cuadrático medio
 import mlflow
 import mlflow.sklearn
-from sklearn.metrics import mean_squared_error
+#from sklearn.metrics import mean_squared_error
 
 # defina el servidor para llevar el registro de modelos y artefactos
 mlflow.set_tracking_uri('http://localhost:5000')
@@ -67,7 +63,7 @@ mlflow.set_tracking_uri('http://localhost:5000')
 experiment = mlflow.set_experiment("Randomclassifier_Obesity")
 
 # Aquí se ejecuta MLflow sin especificar un nombre o id del experimento. MLflow los crea un experimento para este cuaderno por defecto y guarda las características del experimento y las métricas definidas. 
-# Para ver el resultado de las corridas haga click en Experimentos en el menú izquierdo. 
+
 with mlflow.start_run(experiment_id=experiment.experiment_id):
     # defina los parámetros del modelo
     n_estimators = 100 
@@ -75,7 +71,7 @@ with mlflow.start_run(experiment_id=experiment.experiment_id):
     max_features = 4
     # Cree el modelo con los parámetros definidos y entrénelo
     
-    # Modelo drandom forest
+    # Modelo de random forest
     modelo_random_forest = RandomForestClassifier(n_estimators = n_estimators, max_depth = max_depth, max_features = max_features)
     modelo_random_forest.fit(X_train, y_train) 
     #rf = RandomForestRegressor(n_estimators = n_estimators, max_depth = max_depth, max_features = max_features)
@@ -100,8 +96,3 @@ with mlflow.start_run(experiment_id=experiment.experiment_id):
     #mlflow.log_metric("Reporte", report)
 
 
-
-
-   #mse = mean_squared_error(y_test, predictions)
-   # mlflow.log_metric("mse", mse)
-   # print(mse)

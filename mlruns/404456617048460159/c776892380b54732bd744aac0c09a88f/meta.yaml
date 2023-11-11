@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ubuntu/Proyecto-DSA/mlruns/404456617048460159/c776892380b54732bd744aac0c09a88f/artifacts
+end_time: 1699733993424
+entry_point_name: ''
+experiment_id: '404456617048460159'
+lifecycle_stage: active
+run_id: c776892380b54732bd744aac0c09a88f
+run_name: dashing-lark-756
+run_uuid: c776892380b54732bd744aac0c09a88f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1699733990344
+status: 3
+tags: []
+user_id: ubuntu

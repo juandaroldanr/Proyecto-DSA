@@ -19,7 +19,7 @@ from sklearn.ensemble import RandomForestClassifier
 #Se cargan los datos.
 
 #df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
-df = pd.read_csv('C:/Users/Juan/Downloads/ObesityDataSet_raw_and_data_sinthetic.csv')
+df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
 
 #Variables a conservar : SMOKE si fuma o no, CALC cantidad de alchool que consume, NCP comidas al día, CH2O litros agua al día,FAF qué tan seguido se ejercita, TUE tiempo usando dispositivos electrónicos, MTRANS medio de transporte, FCVC frecuencia consumo vegetales 
 df = df.drop(columns=['Gender', 'Age', 'Height', 'Weight', 'family_history_with_overweight', 'CAEC', 'SCC', 'FAF'])
@@ -62,7 +62,7 @@ import mlflow.sklearn
 from sklearn.metrics import mean_squared_error
 
 # defina el servidor para llevar el registro de modelos y artefactos
-mlflow.set_tracking_uri('http://localhost:5000')
+#mlflow.set_tracking_uri('http://localhost:5000')
 # registre el experimento
 experiment = mlflow.set_experiment("Randomclassifier_Obesity")
 

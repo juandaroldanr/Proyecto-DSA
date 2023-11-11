@@ -3,7 +3,7 @@
 """
 Created on Fri Nov 10
 
-@authors: Diego Garcia, Jairo Rueda, Laura Peralta, Juan Roldán 
+@authors: Diego Garcia, Jairo Rueda, Laura Camila Peralta, Juan Roldán 
 """
 
 # Importe el conjunto de datos de diabetes y divídalo en entrenamiento y prueba usando scikit-learn

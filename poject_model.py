@@ -18,7 +18,6 @@ from sklearn.ensemble import RandomForestClassifier
 
 #Se cargan los datos.
 
-#df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
 df = pd.read_csv('ObesityDataSet_raw_and_data_sinthetic.csv')
 
 #Variables a conservar : SMOKE si fuma o no, CALC cantidad de alchool que consume, NCP comidas al día, CH2O litros agua al día,FAF qué tan seguido se ejercita, TUE tiempo usando dispositivos electrónicos, MTRANS medio de transporte, FCVC frecuencia consumo vegetales 
